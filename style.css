@@ -29,11 +29,14 @@ header {
 }
 .navbar {
     display: flex;
-    margin: 20px 20px;
-    border-bottom: 1px solid blue;
+    justify-content: center;
+    margin: 40px 20px;
 }
 .navbar-list {
-    margin: 0 20px;
+    margin: 0 25px;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
 }
 .todo-area {
     border: 1px solid black;
@@ -48,4 +51,38 @@ header {
     display: flex;
     justify-content: center;
     margin: 20px 60px;
+    height: 30px;
+}
+.list > button {
+    background-color: white;
+    border: none;
+    font-size: 20px;
+}
+.checkButton {
+    color: rgb(0, 148, 0);
+    cursor: pointer;
+}
+.returnButton {
+    color: gray;
+    cursor: pointer;
+}
+#deleteButton {
+    color: rgb(174, 0, 0);
+    cursor: pointer;
+}
+.middleLine {
+    width: 80%;
+    text-decoration: line-through;
+    color: gray;
+    font-weight: 200;
+    text-align: start;
+    position: relative;
+    left: 30px;
+}
+.taskContent {
+    width: 80%;
+    font-weight: 600;
+    text-align: start;
+    position: relative;
+    left: 30px;
 }
