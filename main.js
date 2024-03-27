@@ -1,9 +1,9 @@
-// 1. 유저가 값을 입력한다.
-// 2. + 버튼을 누르면 할 일이 추가된다.
-// 3. Check 버튼을 누르면 할 일에 밑줄이 생긴다. -> 객체를 만들어라.
-// 4. Delete 버튼을 누르면 할 일이 삭제된다.
-// 5. 탭을 누르면 언더바가 이동한다.
-// 6. 각 탭을 누르면 탭마다 아이템을 보여준다.
+// // 1. 유저가 값을 입력한다.
+// // 2. + 버튼을 누르면 할 일이 추가된다.
+// // 3. Check 버튼을 누르면 할 일에 밑줄이 생긴다. -> 객체를 만들어라.
+// // 4. Delete 버튼을 누르면 할 일이 삭제된다.
+// // 5. 탭을 누르면 언더바가 이동한다.
+// // 6. 각 탭을 누르면 탭마다 아이템을 보여준다.
 
 let inputArea = document.getElementById("input-area");
 let buttonArea = document.getElementById("button-area");
@@ -51,6 +51,9 @@ function render() {
     } else if(mode === "ongoing" || mode === "done") {
         list = filterList;
     };
+    console.log("render 호출 시 mode:", mode);
+    console.log("list", list)
+    console.log("taskList2", taskList);
 
     let resultHTML = '';
     for(let i=0; i<list.length; i++) {
@@ -79,12 +82,14 @@ function render() {
 };
 
 function checkItem(id) {
+    console.log("checkItem 시작 전 mode:", mode);
     for (let i=0; i<taskList.length; i++) {
         if (taskList[i].id === id) {
             taskList[i].isComplete = !taskList[i].isComplete;
             break;
         }
     }
+    console.log("checkItem 완료 후 mode:", mode);
     render();
 };
 
@@ -96,6 +101,7 @@ function filter(event) {
     console.log("filter", event.target.id)
     mode = event.target.id;
     filterList = [];
+    console.log("filterList", filterList)
 
     if(mode === "all") {
         render();
