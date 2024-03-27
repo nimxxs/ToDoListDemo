@@ -8,7 +8,7 @@
 let inputArea = document.getElementById("input-area");
 let buttonArea = document.getElementById("button-area");
 let deleteButton = document.getElementById("deleteButton");
-let navbarList = document.querySelectorAll(".todo-area div");
+let navbarList = document.querySelectorAll(".navbar div");
 let taskList = [];
 let filterList = [];
 let mode = 'all';
@@ -40,7 +40,6 @@ function addTask() {
         isComplete: false
     };
     taskList.push(task);
-    console.log("taskList", taskList);
 };
 
 // 할 일 render
@@ -51,9 +50,6 @@ function render() {
     } else if(mode === "ongoing" || mode === "done") {
         list = filterList;
     };
-    console.log("render 호출 시 mode:", mode);
-    console.log("list", list)
-    console.log("taskList2", taskList);
 
     let resultHTML = '';
     for(let i=0; i<list.length; i++) {
@@ -82,14 +78,12 @@ function render() {
 };
 
 function checkItem(id) {
-    console.log("checkItem 시작 전 mode:", mode);
     for (let i=0; i<taskList.length; i++) {
         if (taskList[i].id === id) {
             taskList[i].isComplete = !taskList[i].isComplete;
             break;
         }
     }
-    console.log("checkItem 완료 후 mode:", mode);
     render();
 };
 
